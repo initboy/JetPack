@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="palaceViewModel"
+            type="com.abala.jetpack.mvvm.viewmodel.PalaceViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".mvvm.view.NinePalaceGameActivity">
+
+        <GridLayout
+            android:id="@+id/checkerboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="3"
+            app:layout_constraintBottom_toTopOf="@id/play_chess"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                style="@style/checkerboard_grid"
+                android:onClick="@{()->palaceViewModel.onPalaceClick(0,0)}"
+                android:text='@{palaceViewModel.palaces["00"]}' />
+
+            <Button
+                style="@style/checkerboard_grid"
+                android:onClick="@{()->palaceViewModel.onPalaceClick(0,1)}"
+                android:text='@{palaceViewModel.palaces["01"]}'/>
+
+            <Button
+                style="@style/checkerboard_grid"
+                android:onClick="@{()->palaceViewModel.onPalaceClick(0,2)}"
+                android:text='@{palaceViewModel.palaces["02"]}' />
+
+            <Button
+                style="@style/checkerboard_grid"
+                android:onClick="@{()->palaceViewModel.onPalaceClick(1,0)}"
+                android:text='@{palaceViewModel.palaces["10"]}' />
+
+            <Button
+                style="@style/checkerboard_grid"
+                android:onClick="@{()->palaceViewModel.onPalaceClick(1,1)}"
+                android:text='@{palaceViewModel.palaces["11"]}'/>
+
+            <Button
+                style="@style/checkerboard_grid"
+                android:onClick="@{()->palaceViewModel.onPalaceClick(1,2)}"
+                android:text='@{palaceViewModel.palaces["12"]}'/>
+
+            <Button
+                style="@style/checkerboard_grid"
+                android:onClick="@{()->palaceViewModel.onPalaceClick(2,0)}"
+                android:text='@{palaceViewModel.palaces["20"]}'/>
+
+            <Button
+                style="@style/checkerboard_grid"
+                android:onClick="@{()->palaceViewModel.onPalaceClick(2,1)}"
+                android:text='@{palaceViewModel.palaces["21"]}' />
+
+            <Button
+                style="@style/checkerboard_grid"
+                android:onClick="@{()->palaceViewModel.onPalaceClick(2,2)}"
+                android:text='@{palaceViewModel.palaces["22"]}'/>
+
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/play_chess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{palaceViewModel.winner}'
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/checkerboard" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
