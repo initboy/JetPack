@@ -7,19 +7,19 @@ import android.widget.LinearLayout
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.abala.base.viewmodel.BaseViewModel
+import com.abala.base.data.BaseItemData
 
-abstract class AbsBaseView<B : ViewDataBinding, VM : BaseViewModel>(context: Context) :
-    @JvmOverloads LinearLayout(context), IBaseView<VM> {
+abstract class AbsBaseView<V : ViewDataBinding, D : BaseItemData>(context: Context) :
+    @JvmOverloads LinearLayout(context), IBaseView<D> {
 
-    protected var binding: B
+    protected var binding: V
 
     @LayoutRes
     abstract fun layoutId(): Int
 
     abstract fun onRootViewClick(v: View?)
 
-    protected abstract fun <VM> bind(data: VM)
+    protected abstract fun <D> bind(data: D)
 
     init {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -30,8 +30,8 @@ abstract class AbsBaseView<B : ViewDataBinding, VM : BaseViewModel>(context: Con
         addView(binding.root)
     }
 
-    override fun <VM> setViewModel(viewModel: VM) {
-        bind(viewModel)
+    override fun <D> setItemData(itemData: D) {
+        bind(itemData)
         binding.executePendingBindings()
     }
 

@@ -1,7 +1,7 @@
 package com.abala.base.view
 
-import com.abala.base.viewmodel.BaseViewModel
+import com.abala.base.data.BaseItemData
 
-interface IBaseView<VM : BaseViewModel> {
-    fun <VM> setViewModel(viewModel: VM)
+interface IBaseView<D : BaseItemData> {
+    fun <D> setItemData(itemData: D)
 }

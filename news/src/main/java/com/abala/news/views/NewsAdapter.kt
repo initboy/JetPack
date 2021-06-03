@@ -3,11 +3,11 @@ package com.abala.news.views
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.abala.base.recyclerview.BaseViewHolder
-import com.abala.base.viewmodel.BaseViewModel
+import com.abala.base.data.BaseItemData
 import com.abala.common.views.picturenews.PictureNewsView
-import com.abala.common.views.picturenews.PictureNewsViewModel
+import com.abala.common.views.picturenews.PictureNewsItemData
 import com.abala.common.views.textnews.TextNewsView
-import com.abala.common.views.textnews.TextNewsViewModel
+import com.abala.common.views.textnews.TextNewsItemData
 
 class NewsAdapter : RecyclerView.Adapter<BaseViewHolder>() {
     companion object {
@@ -15,9 +15,9 @@ class NewsAdapter : RecyclerView.Adapter<BaseViewHolder>() {
         const val TYPE_PICTURE = 2
     }
 
-    private var news: List<BaseViewModel>? = null
+    private var news: List<BaseItemData>? = null
 
-    fun setData(data: List<BaseViewModel>?) {
+    fun setData(data: List<BaseItemData>?) {
         news = data
         notifyDataSetChanged()
     }
@@ -28,8 +28,8 @@ class NewsAdapter : RecyclerView.Adapter<BaseViewHolder>() {
     //Step 2
     override fun getItemViewType(position: Int): Int {
         return when (news?.get(position)) {
-            is PictureNewsViewModel -> TYPE_PICTURE
-            is TextNewsViewModel -> TYPE_TEXT
+            is PictureNewsItemData -> TYPE_PICTURE
+            is TextNewsItemData -> TYPE_TEXT
             else -> TYPE_TEXT
         }
     }

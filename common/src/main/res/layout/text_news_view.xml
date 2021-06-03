@@ -9,7 +9,7 @@
 
         <variable
             name="textNews"
-            type="com.abala.common.views.textnews.TextNewsViewModel" />
+            type="com.abala.common.views.textnews.TextNewsItemData" />
     </data>
 
     <LinearLayout

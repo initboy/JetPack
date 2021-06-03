@@ -1,20 +1,16 @@
 package com.abala.news.views
 
-import com.abala.base.model.IBaseModelListener
-import com.abala.base.viewmodel.BaseViewModel
+import com.abala.base.model.BaseModel
+import com.abala.common.views.textnews.TextNewsItemData
 
-class NewsModel(private val listener: IBaseModelListener) {
-    private var page = 1
+class NewsModel : BaseModel<TextNewsItemData>() {
 
-    fun refresh() {
-        page = 1
-        loadNextPage()
+    override fun load() {
+        val data: List<TextNewsItemData> = ArrayList()
+        onCompleted(data)
     }
 
-    fun loadNextPage() {
-        val data = ArrayList<BaseViewModel>()
-        //TODO load
-        listener.onDataFetched(data)
-        page++
+    override fun onCompleted(data: List<TextNewsItemData>) {
+        notifyDataFetched(data)
     }
 }

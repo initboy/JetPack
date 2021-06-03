@@ -6,7 +6,7 @@
 
         <variable
             name="pictureNews"
-            type="com.abala.common.views.picturenews.PictureNewsViewModel" />
+            type="com.abala.common.views.picturenews.PictureNewsItemData" />
     </data>
 
     <RelativeLayout
