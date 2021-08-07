@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">rx</string>
+    <string name="request_tree">Request Tree</string>
+    <string name="request_list">Request List</string>
+    <string name="request_shake">Request Shake</string>
+    <string name="request_flat_map">Request FlatMap</string>
+    <string name="request_op_custom">Request OpCustom</string>
+    <string name="to_image">To image</string>
+</resources>
