@@ -1,0 +1,40 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph.xml"
+    app:startDestination="@id/fragment_home"><!--startDestination 第一个开始的fragment-->
+
+    <!--fragment fragment id ， name fragment类-->
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="com.abala.nav.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <!--action id 跳转id ， destination 跳转到的目标fragment-->
+        <action
+            android:id="@+id/action_second"
+            app:destination="@id/fragment_second" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_second"
+        android:name="com.abala.nav.fragment.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second">
+        <action
+            android:id="@+id/action_home"
+            app:destination="@id/fragment_home" />
+        <action
+            android:id="@+id/action_third"
+            app:destination="@id/fragment_third" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_third"
+        android:name="com.abala.nav.fragment.ThirdFragment"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_third">
+        <action
+            android:id="@+id/action_second"
+            app:destination="@id/fragment_second" />
+    </fragment>
+</navigation>

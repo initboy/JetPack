@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--item id 要对应跳转关系中的fragment id 点击才会有跳转效果-->
+    <item
+        android:id="@+id/fragment_home"
+        android:title="home" />
+    <item
+        android:id="@+id/fragment_second"
+        android:title="second" />
+    <item
+        android:id="@+id/fragment_third"
+        android:title="third" />
+
+</menu>
